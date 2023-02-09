@@ -1,195 +1,148 @@
-﻿//************************************************************************************/
-//Напишите программу, которая выводит случайное число из отрезка [10, 99] и показывает 
+﻿// Напишите программу которая принимает на вход координаты (x и y) 
+//причем x =/0 и y =/0  и выдает в какой плоскости из четырех в системе координат находится точка 
 
-// Random random = new Random(); //1.1 получить случайное число
-// int min = 10; //1.2  Задать промежуток в котором мы хотим получить случайное число
-// int max = 99; // 1.2
-// int number = random.Next(min, max + 1); //1.3 Получение случайного числа
-
-// int a = number % 10;// 2.1.1. Получить все цифры числа
-// int b = number / 10;// 2.1.2.
-
-// if (a > b)
+// while (true)
 // {
-//  Console.WriteLine($"в числе {number} самая большая цифра {a}");
-// }
-// else
-// {
-//     Console.WriteLine($"в числе {number} самая большая цифра {b}");
+// 	Task1();
 // }
 
-//************************************************************************************/
-// Задача. Напишите программу, которая выводит случайное трехзначное число и удаляет вторую цифру этого числа 
-// например 456 -> 46  или  782 -> 72
-//1.1 получить случайное число
-//1.2  Задать промежуток в котором мы хотим получить случайное число
-//1.3 Получение случайного числа
-// 2.1.1. Получаем 3 цифру
-// 2.1.2. Получаем 2 цифру
 
-// Вариант1___________________________________________________________________________
-// Random random = new Random(); //1.1 получить случайное число
-// int min = 100;                //1.2  Задать промежуток в котором мы хотим получить случайное число
-// int max = 999;                // 1.2
-// int number = random.Next(min, max + 1); //1.3 Получение случайного числа
-// Console.WriteLine (number);
-// int a = number % 10;                    // 2.1.1. Получаем 3 цифру
-// //int b = number / 10 % 10;               // 2.1.2. Получаем 2 цифру
-// int c = number / 100;                   // 2.1.2. Получаем 1 цифру
-// Console.WriteLine($"из числа {number} цифра {c}{a}");
- 
-//Вариант2___________________________________________________________________________
-// int i = 359;
-// string s = i.ToString();
-// string result = s[0].ToString() + s(2).ToString();
-// Console.WriteLine(result);
-
-
-//___________________________________________________________________________________
-// Генератор случайных чисел
-// Random rnd = new.Random();
-// for (int i = 0; i < 1000000; i++)
+// void Task1()
 // {
-// Console.WriteLine(rnd.Next());
+// 	int x = ReadInt("X");
+// 	int y = ReadInt("Y");
+
+// 	int quarter = GetQuarter(x, y);
+
+// 	Console.WriteLine($"{quarter}: [{x} - {y}]");
+// }
+
+
+// int GetQuarter(int x, int y)
+// {
+// 	if (x == 0 || y == 0)
+// 	{
+// 		return -1;
+// 	}
+
+// 	if (x > 0 && y > 0)
+// 	{
+// 		return 1;
+// 	}
+// 	else if (x < 0 && y > 0)
+// 	{
+// 		return 2;
+// 	}
+// 	else if (x < 0 && y < 0)
+// 	{
+// 		return 3;
+// 	}
+// 	else
+// 	{
+// 		return 4;
+// 	}
+// }
+
+// int ReadInt(string argumentName)
+// {
+// 	Console.Write($"Input {argumentName}: ");
+
+// 	int number = 0;
+// 	while (!int.TryParse(Console.ReadLine(), out number))
+// 	{
+// 		Console.WriteLine("It's not a number");
+// 	}
+
+// 	return number;
+// }
+
+
+// Задача 18. Напишите программу
+
+
+// while (true)
+// {
+//     Console.Clear();
+    
+//     int[] coordX = new int[] {1, -1, -1, 1}; // 0 1 1 0
+//     int[] coordY = new int[] {1, 1, -1, -1}; // 0 0 1 1 
+
+//     Console.WriteLine("\nКакая четверть вас интересует?\nВвдите номер: ");
+
+//     int number = 0;
+//     while (!int.TryParse(Console.ReadLine(), out number))
+//     {
+//         Console.WriteLine("It's not a number.");
+//     }
+
+//     string quarterTextX;
+
+//     if (coprdX[number - 1] > 0)
+//     {
+//         quarterTextX = "+Бесконечность";
+//     } else quarterTextX = "-Бесконечность";
+
+//     string quarterTextY;
+   
+//     if (coprdY[number - 1] > 0)
+//     {
+//         quarterTextY = "+Бесконечность";
+//     } else quarterTextY = "-Бесконечность";
+//     Console.WriteLine($"\nЧетверть {number}:\nX от {coordX[number -1]} до {quarterTextX}\nY от {coordY[number -1]} до {quarterTextY}");
+//     Console.ReadKey();
 //}
 
-//**********************************************************************************/
-//Напишите программу, которая будет принимать на вход два числа и выводить, является ли второе число кратным первому. Если число 2 не кратно числу 1, то программа выводит остаток от деления.
-//34, 5 -> не кратно, остаток 4 
-//16, 4 -> кратно
+//(х2— х1)2 + (y2— y1)2.
+//Напишите программу, которая принимает на вход координаты
+// двух точек и находит расстояние между ними в 2D пространстве.
+// пример  A(3,6); B(2, 1) -> 5,09
+//        A(7,-5); B(1, -1) -> 7,21
 
-//Вариант1____________________________________________________________________________
-// int a = int.Parse(Console.ReadLine());
-// int b = int.Parse(Console.ReadLine());
-// if (a > b)
+// while (true)
 // {
-//     if (a % b == 0)
+//     Point p1 = new Point(1, 2);
+//     Point p2 = new Point(3, 4); 
+//     Console.WriteLine(p1.GetLegth(p2));
+// }
+
+// class Point 
+// {
+//     public int _x; 
+//     public int _y;
+//     public Point(int x, int y)
 //     {
-//         Console.WriteLine("Всё круто делится!!!");
+//         _x = x;
+//         _y = y;
+
+//     }
+
+//     public double GetLegth(Point p)
+//     {
+//         return Math.Sqrt(Math.Pow(this._x-p._x, 2) + (Math.Pow(this._y-p._y, 2)));
 //     }
 // }
-// else
-// {
-//     Console.WriteLine("Всё делится не круто!!!");
-//     Console.WriteLine(a % b);
-// }
 
- //Вариант2________________________________________________________________________
-// Console.Write("Введите первое число: ");
-// int.TryParse(Console.ReadLine(), out int first);
-// Console.Write("Введите второе число: ");
-// int.TryParse(Console.ReadLine(), out int second);
 
-// if (first > second)
+// Задача 21.
+// Console.WriteLine("Введите число:");
+// int N = Convert.ToInt32(Console.Readline());
+// int index = 1;
+
+// while (index <= N)
 // {
-//   int compare = first % second;
-//   if (compare == 0) Console.WriteLine($"{first} кратно {second}");
-//   else Console.WriteLine($"Остаток от деления {compare}");
-// }
-// else
-// {
-//   int compare = second % first;
-//   if (compare == 0) Console.WriteLine($"{second} кратно {first}");
-//   else Console.WriteLine($"Остаток от деления {compare}");
+//     //int result = Convert.ToInt32(Math.Pow(index, 2));
+//     int result = (int)Math.Pow(index, 2);
+//     Console.WriteLine(result);
+//     index++;
 // }
 
 
-//_______________________________________________________________________
-// string cat = "Big Cat";
-// if (cat.Contains("Big") && cat.Contains("Cat"))// && - и
-// {
-//     Console.WriteLine("Yes")
-// }
-//_______________________________________________________________________
-// string cat = "Big Cat";
-// if (cat.Contains("Big") || cat.Contains("Cat"))// ||- или
-// {
-//     Console.WriteLine("Yes")
-// }
-//_______________________________________________________________________
-
-//*****************************************************************************
-//Напишите программу, которая принимает на вход число и проверяет, кратно ли 
-//оно одновременно 7 и 23.
-//14 -> нет 
-//46 -> нет 
-//161 -> да
-
-// Console.WriteLine("Введите число: ");
-// int a = int.Parse(Console.ReadLine());
-// int b = 7;
-// int c = 23;
-                
-// if (a % b == 0 && a % c == 0)
-// {
-//     Console.WriteLine($"Число {a} кратно {b} и {c}");
-// }
-
-//Задача************************************************************************
-// ______________________________________________________________________________
-// int a = 1;
-// int count = 0;
-// int sum = 0;
-// while (count < 5)
-// {
-// 		if ((a % 2 == 0) && (a % 3 ==0))
-// 		{
-// 			sum = sum + a;
-// 			count++;
-// 		}
-// 			a++;
-// }
-// Console.WriteLine(sum);
-
-
-// Напишите программу, которая принимает на вход два числа и проверяет, является ли одно число квадратом другого.
-// 5, 25  ->  да
-// -4, 16  ->  да
-// 25, 5  ->  да
-// 8,9  ->  нет
-//______________________________________________________________________
-// Решение:
-
-Console.Write("Введите первое число: ");
-int a, b;
-a = Convert.ToInt32(Console.ReadLine());
-b = Convert.ToInt32(Console.ReadLine());
-
-if (a == Math.Pow (b, 2) || b == Math.Pow (a, 2))
+// // Задача 3.4 Напишите программу, которая принимает на вход число N и выдаёт таблицу квадратов чисел от 1 до N
+System.Console.WriteLine("Введите число");
+int.TryParse(Console.ReadLine(), out int a);
+int b = 1;
+while(b <= a)
 {
-Console.WriteLine("Да");
+    System.Console.WriteLine(Math.Pow(b, 2));
+    b++;
 }
-else
-{
-Console.WriteLine("Нет");
-}
-//________________________________________________________
-// Вариант 2
-// Console.Write("Введите первое число: ");
-// int a = int.Parse(Console.ReadLine());
-// Console.Write("Введите второе число: ");
-// int b = int.Parse(Console.ReadLine());
-
-// if (Math.Abs(a) == Math.Sqrt(b) || Math.Abs(b) == Math.Sqrt(a))
-// {
-//   Console.WriteLine("Да");
-// }
-// else Console.WriteLine("Нет");
-//
-
-
-//_______________________________________________________________________
-// {
-//   int compare = first % second;
-//   if (compare == 0) Console.WriteLine($"{first} кратно {second}");
-//   else Console.WriteLine($"Остаток от деления {compare}");
-// }
-// else
-// {
-//   int compare = second % first;
-//   if (compare == 0) Console.WriteLine($"{second} кратно {first}");
-//   else Console.WriteLine($"Остаток от деления {compare}");
-// }
-//_______________________________________________________________________
-
-
